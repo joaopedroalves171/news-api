@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from waitress import serve
+from app import app
 
 app = Flask(__name__)
 
@@ -96,4 +98,4 @@ def swagger_ui():
     '''
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0')
+    serve(app, host='0.0.0.0', port=5000)
